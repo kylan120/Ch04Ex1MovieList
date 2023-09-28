@@ -3,8 +3,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Ch04Ex1MovieList.Models
 {
-    public class MovieContext
+    
+
+    public class MovieContext : DbContext
     {
+       public MovieContext() { }
         public MovieContext(DbContextOptions<MovieContext> options)
             : base(options)
         { }
@@ -14,28 +17,28 @@ namespace Ch04Ex1MovieList.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Movie>().HasData(
-                new Movie
-                {
-                    MovieID = 1,
-                    Name = "Casablanca",
-                    Year = 1942,
-                    Rating = 5
-                },
-                new Movie
-                {
-                    MovieID = 2,
-                    Name = "Wonder Woman",
-                    Year = 2017,
-                    Rating = 3
+                    new Movie
+                    {
+                        MovieID = 1,
+                        Name = "Casablanca",
+                        Year = 1942,
+                        Rating = 5
+                    },
+                    new Movie
+                    {
+                        MovieID = 2,
+                        Name = "Wonder Woman",
+                        Year = 2017,
+                        Rating = 3
 
-                },
-                new Movie
-                {
-                    MovieID = 3,
-                    Name = "Moonstruck",
-                    Year = 1988,
-                    Rating = 4
-                }
+                    },
+                    new Movie
+                    {
+                        MovieID = 3,
+                        Name = "Moonstruck",
+                        Year = 1988,
+                        Rating = 4
+                    }
                 );
         }
     }

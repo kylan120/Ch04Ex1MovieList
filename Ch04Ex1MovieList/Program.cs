@@ -1,8 +1,13 @@
+using Ch04Ex1MovieList.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDbContext<MovieContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("MovieContext")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
