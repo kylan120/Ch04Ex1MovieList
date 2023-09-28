@@ -18,7 +18,7 @@ namespace Ch04Ex1MovieList.Migrations
                 columns: table => new
                 {
                     MovieID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1",
+                        .Annotation("SqlServer:ValueGenerationStrategy",
                         SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Year = table.Column<int>(type: "int", nullable: false),
