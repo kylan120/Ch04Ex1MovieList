@@ -28,7 +28,7 @@ namespace Ch04Ex1MovieList.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(Movie movie) 
+        public IActionResult Edit(Movie movie)
         {
             if (ModelState.IsValid)
             {
@@ -41,9 +41,12 @@ namespace Ch04Ex1MovieList.Controllers
             else
             {
                 ViewBag.Action = (movie.MovieID == 0) ? "Add" : "Edit";
-                return View(movie);
+                return View(movie); 
             }
+
+            return RedirectToAction("Index", "Home"); 
         }
+
 
         [HttpGet]
         public IActionResult Delete(int id) 
